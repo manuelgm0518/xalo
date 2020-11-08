@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>869803366817-0c5hlmlklbiuf53f33alqer62ri52ru1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.869803366817-0c5hlmlklbiuf53f33alqer62ri52ru1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAau6TkmvKoKGnodo82tQ_4-VlRsRwYlSs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>869803366817</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rookieroosters.xalo</string>
+	<key>PROJECT_ID</key>
+	<string>xalo-a72ee</string>
+	<key>STORAGE_BUCKET</key>
+	<string>xalo-a72ee.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:869803366817:ios:7ae86a052682a8bde013e0</string>
+	<key>DATABASE_URL</key>
+	<string>https://xalo-a72ee.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "869803366817",
+    "firebase_url": "https://xalo-a72ee.firebaseio.com",
+    "project_id": "xalo-a72ee",
+    "storage_bucket": "xalo-a72ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869803366817:android:6b52d593110c252be013e0",
+        "android_client_info": {
+          "package_name": "com.rookieroosters.xalo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869803366817-r03fjus3kjoi7b0porirjp9hutonmjc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHfOmRQyk5srC62eBd3jFOLvzDB5MoBL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869803366817-r03fjus3kjoi7b0porirjp9hutonmjc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
