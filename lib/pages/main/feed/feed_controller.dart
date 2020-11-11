@@ -10,11 +10,13 @@ class FeedController extends GetxController {
   @override
   void onInit() {
     _scrollListener();
+    createVacancy();
+    createVacancy();
+    createVacancy();
     Timer.periodic(Duration(seconds: 3), (timer) {
       if (feed.length < 10) addItem();
     });
-    //addItem();
-    //addItem();
+
     super.onInit();
   }
 
@@ -44,13 +46,17 @@ class FeedController extends GetxController {
   var locations = ['Aguascalientes', 'Jalisco', 'Ciudad de México', 'Guanajuato', 'Zacatecas'];
   var jobs = ['Desarrollador backend', 'Desarrollador frontend', 'Desarrollador fullstack', 'Desarrollador móvil', 'Desarrollador C# junior', 'Desarrollador Java senior'];
 
-  void addItem() {
-    final index = feed.length;
+  void createVacancy() {
+    //final index = feed.length;
     final company = companies.keys.elementAt(Random().nextInt(4));
     final location = locations[Random().nextInt(4)];
     final daysAgo = 2 + Random().nextInt(4);
     final job = jobs[Random().nextInt(5)];
     feed.add(VacancyCard(icon: companies[company], company: company, location: '$location, México', timeAgo: '$daysAgo días', job: job));
-    listKey.currentState.insertItem(index);
+  }
+
+  void addItem() {
+    createVacancy();
+    listKey.currentState.insertItem(0, duration: Duration(milliseconds: 200));
   }
 }

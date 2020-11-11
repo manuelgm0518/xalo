@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -107,7 +109,8 @@ class FeedPage extends GetView<FeedController> {
             key: controller.listKey,
             initialItemCount: controller.feed.length,
             itemBuilder: (context, index, animation) {
-              return Padding(padding: EdgeInsets.symmetric(horizontal: kSpacing), child: controller.feed[index]);
+              return SizeTransition(sizeFactor: animation, child: Padding(padding: EdgeInsets.symmetric(horizontal: kSpacing / 2), child: controller.feed[index]));
+              //.animate(Duration(milliseconds: 500), Curves.easeInOutExpo);
             },
           )
         ],

@@ -16,7 +16,9 @@ class VacancyCard extends StatelessWidget {
         child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(crossAxisAlignment: CrossAxisAlignment.center, children: [CircleAvatar(backgroundImage: NetworkImage(icon)), kSpacerH, Text(timeAgo).textColor(Colors.grey)]),
+        Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Image.network(icon, width: 40, height: 40, fit: BoxFit.contain), kSpacerH, Text(timeAgo).textColor(Colors.grey)]),
         kSpacerW,
         kSpacerW,
         Expanded(
