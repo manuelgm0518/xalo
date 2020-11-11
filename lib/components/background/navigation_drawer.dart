@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:xalo/app_themes.dart';
+import 'package:xalo/components/background/main_drawer.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key key, this.selected}) : super(key: key);
@@ -17,27 +18,49 @@ class NavigationDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage('https://picsum.photos/200'),
+                backgroundImage: NetworkImage(
+                    'https://firebasestorage.googleapis.com/v0/b/xalo-a72ee.appspot.com/o/talents%2FPCUrSrOlAuuxOmHvtZRI%2FManuel%20Gonz%C3%A1lez%20Mart%C3%ADnez%20351%20(1).jpg?alt=media&token=62c9a3ee-0be2-4338-9287-3d4b5c8fc029'),
                 radius: 40,
               ).center(),
               kSpacerH,
-              Text('Nombre equisde', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+              Text('Manuel González', textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
               Text(
-                'Nivel (?',
+                'Desarrollador Móvil',
                 textAlign: TextAlign.left,
                 style: TextStyle(color: kPrimaryColor),
               ),
             ],
           ).padding(all: kSpacing * 2),
-        ),
+        ).gestures(onTap: () => Get.toNamed('/profile')),
         kSpacerH,
-        navigationTile(MdiIcons.home, 'Inicio', selected: selected == 'feed', onTap: () => Get.offAndToNamed('/main/feed')),
-        navigationTile(MdiIcons.forum, 'Mensajes', badgeCount: 17, selected: selected == 'inbox', onTap: () => Get.offAndToNamed('/main/inbox')),
-        navigationTile(MdiIcons.briefcase, 'Jales', selected: selected == 'jales', onTap: () => Get.offAndToNamed('/main/jales')),
-        navigationTile(MdiIcons.lightbulbOn, 'Proyectos', selected: selected == 'projects', onTap: () => Get.offAndToNamed('/main/projects')),
-        navigationTile(MdiIcons.cog, 'Ajustes', selected: selected == 'settings', onTap: () => Get.toNamed('/settings')),
+        navigationTile(MdiIcons.home, 'Inicio', selected: selected == 'feed', onTap: () async {
+          await Get.offAndToNamed('/main/feed');
+          await Future.delayed(Duration(milliseconds: 400));
+          MainDrawerController.to.toggleNavigation(false);
+        }),
+        navigationTile(MdiIcons.forum, 'Mensajes', badgeCount: 17, selected: selected == 'inbox', onTap: () async {
+          await Get.offAndToNamed('/main/inbox');
+          await Future.delayed(Duration(milliseconds: 400));
+          MainDrawerController.to.toggleNavigation(false);
+        }),
+        navigationTile(MdiIcons.briefcase, 'Jales', selected: selected == 'jales', onTap: () async {
+          await Get.offAndToNamed('/main/jales');
+          await Future.delayed(Duration(milliseconds: 400));
+          MainDrawerController.to.toggleNavigation(false);
+        }),
+        navigationTile(MdiIcons.lightbulbOn, 'Proyectos', selected: selected == 'projects', onTap: () async {
+          await Get.offAndToNamed('/main/projects');
+          await Future.delayed(Duration(milliseconds: 400));
+          MainDrawerController.to.toggleNavigation(false);
+        }),
         Spacer(),
-        Image.asset('assets/app/xalo_logotype_white.png', height: 70).gestures(onTap: () => Get.toNamed('/info')),
+        Row(children: [
+          Image.asset('assets/app/xalo_logotype_white.png', height: 50).gestures(onTap: () => Get.toNamed('/info')),
+          Spacer(),
+          Container(height: 40, width: 2, color: Colors.white24),
+          kSpacerW,
+          IconButton(icon: Icon(MdiIcons.cog, size: 35, color: Colors.white54), onPressed: () => Get.toNamed('/settings')),
+        ]).paddingSymmetric(horizontal: kSpacing * 2),
       ],
     );
   }

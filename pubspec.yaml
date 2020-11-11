@@ -40,6 +40,7 @@ dependencies:
   flutter_speed_dial: ^1.2.5
   intro_slider: ^2.3.3
 
+  firebase_core: "^0.5.2"
   cloud_firestore: ^0.14.3
 
 

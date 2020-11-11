@@ -9,8 +9,23 @@ import 'package:styled_widget/styled_widget.dart';
 class MainDrawerController extends GetxController {
   static MainDrawerController get to => Get.find();
   final drawerKey = GlobalKey<InnerDrawerState>();
-  void toggleNavigation() => drawerKey.currentState.toggle(direction: InnerDrawerDirection.start);
-  void toggleNotifications() => drawerKey.currentState.toggle(direction: InnerDrawerDirection.end);
+  void toggleNavigation([bool open]) {
+    if (open == null)
+      drawerKey.currentState.toggle(direction: InnerDrawerDirection.start);
+    else if (open)
+      drawerKey.currentState.open(direction: InnerDrawerDirection.start);
+    else
+      drawerKey.currentState.close(direction: InnerDrawerDirection.start);
+  }
+
+  void toggleNotifications([bool open]) {
+    if (open == null)
+      drawerKey.currentState.toggle(direction: InnerDrawerDirection.end);
+    else if (open)
+      drawerKey.currentState.open(direction: InnerDrawerDirection.end);
+    else
+      drawerKey.currentState.close(direction: InnerDrawerDirection.end);
+  }
 }
 
 class MainDrawer extends GetView<MainDrawerController> {

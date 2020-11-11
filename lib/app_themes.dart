@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 //Constantes Globales
 const double kBorderRadius = 15.0;
 const double kSpacing = 10.0;
-const Color kPrimaryColor = Colors.teal;
-const Color kAccentColor = Color.fromARGB(255, 0, 191, 165);
-const Color kLightColor = Color.fromARGB(255, 240, 250, 248);
+const Color kPrimaryColor = Colors.teal; //#009688
+const Color kAccentColor = Color.fromARGB(255, 0, 191, 165); //#00bfa5
+const Color kLightColor = Color.fromARGB(255, 240, 250, 248); //
 const BoxShadow kShadow = const BoxShadow(color: Color.fromARGB(125, 0, 150, 136), blurRadius: 20.0, offset: const Offset(0, 5));
 
 const kCircular = const BorderRadius.all(Radius.circular(kBorderRadius));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xalo/services/session.dart';
 
 class LoginController extends GetxController {
   final formKey = new GlobalKey<FormState>();
@@ -7,7 +8,8 @@ class LoginController extends GetxController {
   final passwordField = TextEditingController();
   void validateForm() {
     if (formKey.currentState.validate()) {
-      Get.offAndToNamed('/main/feed');
+      //Session.loggedIn = true;
+      //Get.offAndToNamed('/main/feed');
     }
   }
 }

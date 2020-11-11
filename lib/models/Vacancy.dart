@@ -3,14 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:xalo/models/FeedCard.dart';
 
-class Vacant extends FeedCard {
+class Vacancy extends FeedCard {
   final String title;
   final String description;
   final String job;
   final String salary;
   final bool closed;
 
-  Vacant({
+  Vacancy({
     String id,
     DateTime creation,
     String owner,
@@ -25,10 +25,10 @@ class Vacant extends FeedCard {
           creation: creation,
           owner: owner,
           tags: tags,
-          type: 'vacant',
+          type: 'vacancy',
         );
 
-  Vacant copyWith({
+  Vacancy copyWith({
     String id,
     DateTime creation,
     String owner,
@@ -40,7 +40,7 @@ class Vacant extends FeedCard {
     String salary,
     bool closed,
   }) {
-    return Vacant(
+    return Vacancy(
       id: id ?? this.id,
       creation: creation ?? this.creation,
       owner: owner ?? this.owner,
@@ -67,10 +67,10 @@ class Vacant extends FeedCard {
     };
   }
 
-  factory Vacant.fromMap(Map<String, dynamic> map) {
+  factory Vacancy.fromMap(Map<String, dynamic> map) {
     if (map == null) return null;
 
-    return Vacant(
+    return Vacancy(
       id: map['id'],
       creation: (map['creation'] as Timestamp)?.toDate() ?? null,
       owner: map['owner'],
@@ -85,18 +85,18 @@ class Vacant extends FeedCard {
 
   String toJson() => json.encode(toMap());
 
-  factory Vacant.fromJson(String source) => Vacant.fromMap(json.decode(source));
+  factory Vacancy.fromJson(String source) => Vacancy.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Vacant(id: $id, creation: $creation, owner: $owner, tags: $tags, title: $title, description: $description, job: $job, salary: $salary, closed: $closed)';
+    return 'Vacancy(id: $id, creation: $creation, owner: $owner, tags: $tags, title: $title, description: $description, job: $job, salary: $salary, closed: $closed)';
   }
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is Vacant &&
+    return o is Vacancy &&
         o.id == id &&
         o.creation == creation &&
         o.owner == owner &&
