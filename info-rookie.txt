@@ -1,0 +1,33 @@
+1. Agreguen este slider a la intro con el mismo estilo de Figma 
+    https://pub.dev/packages/intro_slider
+    Si ocupan imágenes aquí hay páginas shidas:
+    drawkit.io
+    undraw.com/illustrations
+    sketchvalley.com
+    opendoodles.com
+    openpeeps.com
+
+2. Hagan los formularios que puedan, (completar el login, el registro, la creación de vacantes)
+    Hay un ejemplo sencillo de formulario en el login
+    Los modelos de las clases están en la carpeta models
+
+3. Mapa del flujo de usuario
+    Ya están todas las páginas del proyecto, hagan bonito 
+    qué página te lleva a qué página
+    Pueden usar mockflow.com o en el mismo Figma
+    O lo que quieran alv
+
+
+4. Si les queda tiempo pueden rellenar la página de settings y la de info
+    con cualquier tontería no hay pp
+    (la de info es información de la app, de nosotros y así)
+
+
+Prácticamente todo está dividido en Page y en Controller
+Page es la vista y controller la lógica, ambos están conectadas
+Para acceder a todo lo de la lógica utilicen controller.[propiedad] dentro de la vista
+https://github.com/jonataslaw/getx/blob/master/documentation/en_US/state_management.md
+
+Las rutas están en app_routes.dart
+Get.toNamed('/nombre_pagina'); // Ir a página
+Get.offAndNamed('/nombre_pagina) //Reemplazar página actual

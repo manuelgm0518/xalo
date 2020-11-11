@@ -1,12 +1,65 @@
-import 'dart:convert';
-import 'dart:io';
-//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+import 'package:xalo/components/dialogs/error_dialog.dart';
+//import 'package:http/http.dart' as http;
 
 class FirebaseService extends GetxController {
   static FirebaseService get to => Get.find();
-  //final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Future<Map<String, dynamic>> getFrom(String path, {String error, bool showError = false}) async {
+    try {
+      final result = await firestore.doc(path).get();
+      if (result != null) return {'id': result.id, ...result.data()};
+      throw "No se pudo encontrar la información solicitada.";
+    } catch (e) {
+      print('[FIRESTORE GET ERROR]: $e');
+      if (showError) await ErrorDialog(error: error, description: e.toString()).show();
+      return null;
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> getWhere(String collection, Query Function(CollectionReference) query, {int limit, String error, bool showError = false}) async {
+    try {
+      final reference = firestore.collection(collection);
+      final results = await (limit != null ? query(reference) : query(reference).limit(limit)).get();
+      if (results != null) {
+        var docs = <Map<String, dynamic>>[];
+        for (final doc in results.docs) docs.add({'id': doc.id, ...doc.data()});
+        return docs;
+      }
+      throw "No se pudo encontrar la información solicitada.";
+    } catch (e) {
+      print('[FIRESTORE QUERY ERROR]: $e');
+      if (showError) await ErrorDialog(error: error, description: e.toString()).show();
+      return null;
+    }
+  }
+
+  Stream<DocumentSnapshot> getStream(String path, {String error, bool showError = false}) {
+    try {
+      final results = firestore.doc(path).snapshots();
+      if (results != null) return results;
+      throw "No se pudo encontrar la información solicitada.";
+    } catch (e) {
+      print('[FIRESTORE STREAM ERROR]: $e');
+      if (showError) ErrorDialog(error: error, description: e.toString()).show();
+      return null;
+    }
+  }
+
+  Stream<QuerySnapshot> getStreamWhere(String collection, Query Function(CollectionReference) query, {int limit, String error, bool showError = false}) {
+    try {
+      final reference = firestore.collection(collection);
+      final results = (limit != null ? query(reference) : query(reference).limit(limit)).snapshots();
+      if (results != null) return results;
+      throw "No se pudo encontrar la información solicitada.";
+    } catch (e) {
+      print('[FIRESTORE STREAM QUERY ERROR]: $e');
+      if (showError) ErrorDialog(error: error, description: e.toString()).show();
+      return null;
+    }
+  }
 
   /*final FirebaseMessaging messaging = FirebaseMessaging();
   final FirebaseStorage storage = FirebaseStorage.instance;

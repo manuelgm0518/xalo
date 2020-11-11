@@ -30,6 +30,13 @@
             {
               "client_id": "869803366817-r03fjus3kjoi7b0porirjp9hutonmjc0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "869803366817-0c5hlmlklbiuf53f33alqer62ri52ru1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rookieroosters.xalo"
+              }
             }
           ]
         }

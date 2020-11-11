@@ -1,14 +1,15 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:firebase_core/firebase_core.dart';
-import 'package:velocity_x/velocity_x.dart';
-import 'config/app_routes.dart';
-import 'config/app_themes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:xalo/services/firebase_service.dart';
+import 'components/background/main_drawer.dart';
+import 'app_routes.dart';
+import 'app_themes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (!Vx.isWeb) await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   //await Firebase.initializeApp();
   runApp(Xalo());
 }
@@ -16,6 +17,7 @@ void main() async {
 class MainBinding implements Bindings {
   @override
   void dependencies() {
+    Get.put<MainDrawerController>(MainDrawerController(), permanent: true);
     //Get.put<FirebaseService>(FirebaseService(), permanent: true);
   }
 }
@@ -26,10 +28,14 @@ class Xalo extends StatelessWidget {
     return GestureDetector(
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppThemes.mainLight,
+        theme: AppThemes.main,
         getPages: AppRoutes.routes,
         initialBinding: MainBinding(),
-        initialRoute: '/',
+        initialRoute: '/intro',
+        builder: (context, widget) => MainDrawer(controllerKey: MainDrawerController.to.drawerKey, child: widget),
+        routingCallback: (routing) {
+          if (routing.current.contains('/main')) MainDrawerController.to.update();
+        },
       ),
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
