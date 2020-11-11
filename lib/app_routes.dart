@@ -6,11 +6,16 @@ import 'package:xalo/pages/main/feed/feed_controller.dart';
 import 'package:xalo/pages/main/feed/feed_page.dart';
 import 'package:xalo/pages/main/inbox/inbox_controller.dart';
 import 'package:xalo/pages/main/inbox/inbox_page.dart';
+import 'package:xalo/pages/main/jales/jales_controller.dart';
+import 'package:xalo/pages/main/jales/jales_page.dart';
+import 'package:xalo/pages/main/projects/projects_controller.dart';
+import 'package:xalo/pages/settings/settings_page.dart';
 import 'pages/info/info_controller.dart';
 import 'pages/landing/forms/login_controller.dart';
 import 'pages/landing/forms/login_page.dart';
 import 'pages/landing/forms/signup_controller.dart';
 import 'pages/landing/forms/signup_page.dart';
+import 'pages/main/projects/projects_page.dart';
 import 'pages/settings/settings_controller.dart';
 
 class AppRoutes {
@@ -44,18 +49,18 @@ class AppRoutes {
     ),
     GetPage(
       name: '/main/jales',
-      page: () => FeedPage(),
-      binding: BindingsBuilder(() => Get.lazyPut<FeedController>(() => FeedController())),
+      page: () => JalesPage(),
+      binding: BindingsBuilder(() => Get.lazyPut<JalesController>(() => JalesController())),
     ),
     GetPage(
       name: '/main/projects',
-      page: () => FeedPage(),
-      binding: BindingsBuilder(() => Get.lazyPut<FeedController>(() => FeedController())),
+      page: () => ProjectsPage(),
+      binding: BindingsBuilder(() => Get.lazyPut<ProjectsController>(() => ProjectsController())),
     ),
     //OTHERS
     GetPage(
       name: '/settings',
-      page: () => FeedPage(),
+      page: () => SettingsPage(),
       binding: BindingsBuilder(() => Get.lazyPut<SettingsController>(() => SettingsController())),
     ),
     GetPage(

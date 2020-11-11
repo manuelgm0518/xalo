@@ -31,3 +31,5 @@ https://github.com/jonataslaw/getx/blob/master/documentation/en_US/state_managem
 Las rutas están en app_routes.dart
 Get.toNamed('/nombre_pagina'); // Ir a página
 Get.offAndNamed('/nombre_pagina) //Reemplazar página actual
+
+Los tkm <3

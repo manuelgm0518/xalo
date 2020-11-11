@@ -11,6 +11,7 @@ class IntroPage extends GetView<IntroController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Intro'),
@@ -19,6 +20,6 @@ class IntroPage extends GetView<IntroController> {
         RaisedButton(onPressed: () => Get.toNamed('/login'), child: Text('Login')),
         RaisedButton(onPressed: () => Get.toNamed('/signup'), child: Text('Signup'))
       ],
-    ));
+    ).paddingAll(kSpacing * 2));
   }
 }

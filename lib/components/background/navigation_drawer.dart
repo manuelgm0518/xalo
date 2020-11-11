@@ -33,11 +33,11 @@ class NavigationDrawer extends StatelessWidget {
         kSpacerH,
         navigationTile(MdiIcons.home, 'Inicio', selected: selected == 'feed', onTap: () => Get.offAndToNamed('/main/feed')),
         navigationTile(MdiIcons.forum, 'Mensajes', badgeCount: 17, selected: selected == 'inbox', onTap: () => Get.offAndToNamed('/main/inbox')),
-        navigationTile(MdiIcons.briefcase, 'Jales', selected: selected == 'jales'),
-        navigationTile(MdiIcons.lightbulbOn, 'Proyectos', selected: selected == 'projects'),
-        navigationTile(MdiIcons.cog, 'Ajustes', selected: selected == 'settings'),
+        navigationTile(MdiIcons.briefcase, 'Jales', selected: selected == 'jales', onTap: () => Get.offAndToNamed('/main/jales')),
+        navigationTile(MdiIcons.lightbulbOn, 'Proyectos', selected: selected == 'projects', onTap: () => Get.offAndToNamed('/main/projects')),
+        navigationTile(MdiIcons.cog, 'Ajustes', selected: selected == 'settings', onTap: () => Get.toNamed('/settings')),
         Spacer(),
-        Image.asset('assets/app/xalo_logotype_white.png', height: 70),
+        Image.asset('assets/app/xalo_logotype_white.png', height: 70).gestures(onTap: () => Get.toNamed('/info')),
       ],
     );
   }
