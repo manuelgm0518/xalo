@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:get/get.dart';
 import 'package:xalo/app_themes.dart';
+import 'package:xalo/services/session.dart';
 import 'navigation_drawer.dart';
 import 'notification_drawer.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -25,6 +26,13 @@ class MainDrawerController extends GetxController {
       drawerKey.currentState.open(direction: InnerDrawerDirection.end);
     else
       drawerKey.currentState.close(direction: InnerDrawerDirection.end);
+  }
+
+  @override
+  void onReady() {
+    Session.loggedAs = 'user';
+    update();
+    super.onReady();
   }
 }
 

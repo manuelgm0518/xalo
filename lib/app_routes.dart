@@ -47,15 +47,13 @@ class AppRoutes {
     ),
     GetPage(
       name: '/main/inbox',
-      page: () => WipPage(),
-      //page: () => InboxPage(),
-      //binding: BindingsBuilder(() => Get.lazyPut<InboxController>(() => InboxController())),
+      page: () => InboxPage(),
+      binding: BindingsBuilder(() => Get.lazyPut<InboxController>(() => InboxController())),
     ),
     GetPage(
       name: '/main/jales',
-      page: () => WipPage(),
-      //page: () => JalesPage(),
-      //binding: BindingsBuilder(() => Get.lazyPut<JalesController>(() => JalesController())),
+      page: () => JalesPage(),
+      binding: BindingsBuilder(() => Get.lazyPut<JalesController>(() => JalesController())),
     ),
     GetPage(
       name: '/main/projects',

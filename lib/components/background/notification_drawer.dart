@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:xalo/app_themes.dart';
@@ -17,14 +18,13 @@ class NotificationDrawer extends StatelessWidget {
               borderRadius: kCircular,
               color: Colors.white12,
             ),
-            child: ListTile(
+            child: Badge(
+                child: ListTile(
               onTap: () {},
-
               shape: RoundedRectangleBorder(borderRadius: kCircular),
-              //leading: Icon(MdiIcons.message),
               title: Text('Bienvenido a Xalo!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              subtitle: Text('Hace 1 min', style: TextStyle(color: Colors.white)),
-            )),
+              subtitle: Text('Hace 1 min', style: TextStyle(color: Colors.white60)),
+            ))),
         Spacer()
       ],
     );

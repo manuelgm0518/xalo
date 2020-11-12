@@ -30,6 +30,7 @@ dependencies:
   localstorage: ^3.0.3+6
   url_launcher: ^5.7.10
   intl: ^0.16.1
+  faker: ^1.2.1
 
   cached_network_image_builder: ^0.1.0
   material_design_icons_flutter: ^4.0.5755

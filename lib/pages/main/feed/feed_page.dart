@@ -54,9 +54,9 @@ class FeedPage extends GetView<FeedController> {
                   onTap: () => Get.rawSnackbar(title: 'Work In Progress!', message: 'Próximanmente...')),
               kSpacerW,
               Badge(
-                position: BadgePosition.topEnd(top: 10),
+                position: BadgePosition.topEnd(top: 10, end: -5),
                 elevation: 0,
-                badgeContent: Text('1', style: TextStyle(color: Colors.white, fontSize: 10)),
+                badgeContent: Text('1', style: TextStyle(color: Colors.white, fontSize: 11)),
                 child:
                     CircleIconButton(icon: Icon(MdiIcons.bell), backgroundColor: kPrimaryColor.withOpacity(0.25), onTap: () => MainDrawerController.to.toggleNotifications(true)),
               ),

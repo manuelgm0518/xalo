@@ -35,7 +35,7 @@ class Xalo extends StatelessWidget {
         theme: AppThemes.main,
         getPages: AppRoutes.routes,
         initialBinding: MainBinding(),
-        initialRoute: '/intro',
+        initialRoute: '/main/feed',
         unknownRoute: GetPage(name: '/wip', page: () => WipPage()),
         builder: (context, widget) => MainDrawer(controllerKey: MainDrawerController.to.drawerKey, child: widget),
         routingCallback: (routing) {

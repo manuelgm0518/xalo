@@ -14,7 +14,7 @@ class FeedController extends GetxController {
     createVacancy();
     createVacancy();
     Timer.periodic(Duration(seconds: 3), (timer) {
-      if (feed.length < 10) addItem();
+      if (Get.currentRoute == '/main/feed' && feed.length < 10) addItem();
     });
 
     super.onInit();
